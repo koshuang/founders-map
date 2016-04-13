@@ -1,0 +1,48 @@
+{
+  "name": "founders-map",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.4.1",
+    "json3": "3.3.1",
+    "es5-shim": "3.1.0",
+    "bootstrap": "~3.3.5",
+    "angular-resource": "1.4.1",
+    "angular-cookies": "1.4.1",
+    "angular-sanitize": "1.4.1",
+    "angular-animate": "1.4.1",
+    "angular-touch": "1.4.1",
+    "angular-route": "1.4.1",
+    "angulartics": "~0.20.2",
+    "modernizr": "2.8.3",
+    "ui-router": "0.2.13",
+    "fontawesome": "~4.5.0",
+    "angular-bootstrap": "0.13.0",
+    "ramda": "0.18.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.1",
+    "angular-scenario": "1.4.1",
+    "bardjs": "~0.1.8",
+    "jasmine-jquery": "~2.1.1"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "fontawesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/*"
+      ]
+    }
+  },
+  "appPath": "app",
+  "resolutions": {
+    "swiper": "2.7.0",
+    "angular": "1.4.1",
+    "lodash": "3.0.0"
+  }
+}

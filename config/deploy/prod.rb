@@ -1,0 +1,5 @@
+set :domain, 'founders-map.imkos.com'
+# set :deploy_to, ''
+# set :repository, ''
+set :branch, 'develop'
+set :user, 'root'

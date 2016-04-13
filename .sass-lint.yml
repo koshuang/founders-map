@@ -1,0 +1,127 @@
+files:
+  include: '**/*.scss'
+  ignore:
+    - 'bower_components/**/*.s+(a|c)ss'
+    - 'node_modules/**/*.s+(a|c)ss'
+options:
+  formatter: stylish
+  merge-default-rules: false
+rules:
+  border-zero:
+    - 2
+    - convention: zero
+  brace-style:
+    - 2
+    - allow-single-line: true
+  clean-import-paths:
+    - 2
+    - filename-extension: false
+      leading-underscore: false
+  empty-line-between-blocks:
+    - 1
+    - ignore-single-line-rulesets: true
+  extends-before-declarations: 1
+  extends-before-mixins: 1
+  final-newline:
+    - 2
+    - include: true
+  force-attribute-nesting: 1
+  force-element-nesting: 1
+  force-pseudo-nesting: 0
+  function-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  hex-length:
+    - 2
+    - style: short
+  hex-notation:
+    - 2
+    - style: lowercase
+  indentation:
+    - 0
+    - size: 2
+  leading-zero:
+    - 2
+    - include: false
+  mixin-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  mixins-before-declarations: 1
+  nesting-depth:
+    - 2
+    - max-depth: 3
+  no-color-keyword: 1
+  no-color-literals: 2
+  no-css-comments: 0
+  no-debug: 1
+  no-duplicate-properties: 1
+  no-empty-rulesets: 1
+  no-extends: 0
+  no-ids: 1
+  no-important: 0
+  no-invalid-hex: 1
+  no-mergeable-selectors: 0
+  no-misspelled-properties:
+    - 2
+    - extra-properties: []
+  no-qualifying-elements:
+    - 2
+    - allow-element-with-attribute: false
+      allow-element-with-class: false
+      allow-element-with-id: false
+  no-trailing-zero: 0
+  no-transition-all: 0
+  no-url-protocols: 1
+  no-vendor-prefixes:
+    - 0
+    - additional-identifiers: []
+      excluded-identifiers: []
+  placeholder-in-extend: 1
+  placeholder-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  property-sort-order:
+    - 2
+    - order: smacss
+  quotes:
+    - 2
+    - style: double
+  shorthand-values:
+    - 2
+    - allowed-shorthands:
+        - 2
+        - 2
+        - 3
+  single-line-per-selector: 1
+  space-after-bang:
+    - 2
+    - include: false
+  space-after-colon:
+    - 2
+    - include: true
+  space-after-comma:
+    - 2
+    - include: true
+  space-before-bang:
+    - 2
+    - include: true
+  space-before-brace:
+    - 2
+    - include: true
+  space-before-colon: 1
+  space-between-parens:
+    - 2
+    - include: false
+  trailing-semicolon: 1
+  url-quotes: 1
+  variable-for-property:
+    - 2
+    - properties: []
+  variable-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  zero-unit: 1
