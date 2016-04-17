@@ -5,5 +5,6 @@
 
   angular
     .module('app.core')
+    .constant('R', R)
     .constant('CSV', CSV);
 })();
