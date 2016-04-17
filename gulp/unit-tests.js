@@ -26,6 +26,11 @@ module.exports = function(options) {
         watched: true,
         served: true,
         included: false
+      }, {
+        pattern: options.src + '/**/*.csv',
+        watched: true,
+        served: true,
+        included: false
       }
     ];
 
