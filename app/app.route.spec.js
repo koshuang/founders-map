@@ -4,8 +4,9 @@ describe('app.route', function() {
 
   var helper;
 
+  beforeEach(module('app.core'));
+
   beforeEach(function () {
-    beforeEach(module('app.core'));
 
     bard.inject('mockRouterHelper', '$state', '$location', '$cookieStore', '$timeout');
     helper = mockRouterHelper;
@@ -40,21 +41,6 @@ describe('app.route', function() {
           helper.goTo(path);
           expect($state.current.name).to.be.eq(state);
         });
-      });
-    });
-  });
-
-  describe('state', function() {
-    describe('params', function () {
-      it('should resolve params', function () {
-        mockRouterHelper.resolve('params')
-          .forStateAndView('auth.facebookLogin');
-
-        expect($location.search).to.be.called;
-        expect($cookieStore.put).to.be.called;
-        expect(authService.autoLogin).to.be.called;
-        $timeout.flush();
-        expect($state.go).to.be.called;
       });
     });
   });
