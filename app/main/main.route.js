@@ -17,7 +17,8 @@
     return [{
       state: 'main',
       config: {
-        url: '/main',
+        url: '/',
+        abstract: true,
         ncyBreadcrumb: {
           label: 'Home'
         },
@@ -27,6 +28,21 @@
           },
           'context@main': {
             templateUrl: 'main/main.html'
+          }
+        }
+      }
+    }, {
+      state: 'main.map',
+      config: {
+        url: '',
+        ncyBreadcrumb: {
+          label: 'Map'
+        },
+        views: {
+          'main-context': {
+            controller: 'MapController',
+            templateUrl: 'main/map.html',
+            controllerAs: 'vm'
           }
         }
       }
