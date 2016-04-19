@@ -12,6 +12,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp/serve,app}) styles/app.css -->
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="app">
@@ -30,6 +31,9 @@
     <![endif]-->
     <!-- endbuild -->
 
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->

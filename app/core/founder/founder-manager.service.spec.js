@@ -1,3 +1,4 @@
+// jscs:disable maximumLineLength
 /* jshint -W117, -W030 */
 describe('founderManager', function() {
   'use strict';
