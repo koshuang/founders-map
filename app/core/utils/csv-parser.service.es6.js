@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name app.main
+ * @name app.core
  * @description
  * # csv parser
  * Factory in the app.
  */
-angular.module('app.main')
+angular.module('app.core')
   .factory('csvParser', function(CSV) {
 
     // Public API here
