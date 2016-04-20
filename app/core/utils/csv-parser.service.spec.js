@@ -3,7 +3,7 @@ describe('csvParser', function() {
   'use strict';
 
   beforeEach(function() {
-    bard.appModule('app');
+    bard.appModule('app.core');
     bard.inject('csvParser');
   });
 
