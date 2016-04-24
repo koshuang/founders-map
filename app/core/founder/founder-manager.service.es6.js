@@ -11,6 +11,7 @@ angular.module('app.core')
   .factory('founderManager', (csvParser, R) => {
 
     return {
+      founders: [],
       headers: [],
       latitude: null,
       longitude: null,
@@ -27,7 +28,7 @@ angular.module('app.core')
           founders = records.map((r) => R.zipObj(this.headers, r));
         }
 
-        return founders;
+        this.founders = founders;
       },
 
       setLocationHeader: function({ latitude, longitude }) {

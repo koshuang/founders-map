@@ -12,10 +12,12 @@ describe('founderManager', function() {
   });
 
   describe('parseCsv()', function() {
-    it('should convert csv to founders', function() {
+    it('should convert csv and save founders', function() {
       var csv = jasmine.getFixtures().read('founders.csv');
 
-      var founders = founderManager.parseCsv(csv);
+      founderManager.parseCsv(csv);
+
+      var founders = founderManager.founders;
       var founder = founders[0];
 
       var matchedFounder = {
