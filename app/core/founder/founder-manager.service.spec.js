@@ -18,18 +18,49 @@ describe('founderManager', function() {
       var founders = founderManager.parseCsv(csv);
       var founder = founders[0];
 
-      expect(founder.id).to.be.eq(1);
-      expect(founder.companyName).to.be.eq('Google');
-      expect(founder.name).to.be.eq('Larry Page & Sergey Brin');
-      expect(founder.city).to.be.eq('Mountain View');
-      expect(founder.country).to.be.eq('USA');
-      expect(founder.postalCode).to.be.eq('CA 94043');
-      expect(founder.street).to.be.eq('1600 Amphitheatre Pkwy');
-      expect(founder.photo).to.be.eq('http://interviewsummary.com/wp-content/uploads/2013/07/larry-page-and-sergey-brin-of-google-620x400.jpg');
-      expect(founder.homePage).to.be.eq('http://google.com');
-      expect(founder.latitude).to.be.eq(37.457674);
-      // TODO: need to convert to number
-      expect(founder.longitude).to.be.eq('-122.163452');
+      var matchedFounder = {
+        'Id': 1,
+        'Company Name': 'Google',
+        'Founder': 'Larry Page & Sergey Brin',
+        'City': 'Mountain View',
+        'Country': 'USA',
+        'Postal Code': 'CA 94043',
+        'Street': '1600 Amphitheatre Pkwy',
+        'Photo': 'http://interviewsummary.com/wp-content/uploads/2013/07/larry-page-and-sergey-brin-of-google-620x400.jpg',
+        'Home Page': 'http://google.com',
+        'Garage Latitude': 37.457674,
+        'Garage Longitude': '-122.163452'
+      };
+
+      var headers = Object.keys(matchedFounder);
+
+      expect(founderManager.headers).to.deep.eq(headers);
+
+      headers.forEach((header) => {
+        expect(founder[header]).to.be.eq(matchedFounder[header]);
+      });
+    });
+  });
+
+  describe('setLocationHeader()', function() {
+    it('should set latitude and longitude', function() {
+      var locationHeader = {
+        latitude: 'Garage Latitude',
+        longitude: 'Garage Longitude'
+      };
+
+      founderManager.setLocationHeader(locationHeader);
+      expect(founderManager.latitude).to.deep.eq('Garage Latitude');
+      expect(founderManager.longitude).to.deep.eq('Garage Longitude');
+    });
+  });
+
+  describe('setDetailHeaders()', function() {
+    it('should set detail headers', function() {
+      var details = ['City', 'Street', 'Postal Code'];
+
+      founderManager.setDetailHeaders(details);
+      expect(founderManager.details.length).to.be.eq(3);
     });
   });
 });
