@@ -8,16 +8,25 @@
  * Factory in the app.
  */
 angular.module('app.core')
-  .factory('founderManager', (csvParser, R, Founder) => {
+  .factory('founderManager', (csvParser, R, Founder, $localStorage) => {
 
-    return {
-      founders: [],
-      headers: [],
-      latitude: null,
-      longitude: null,
-      details: [],
+    class FounderManager {
+      constructor() {
+        this.headers = [];
+        this.latitude = null;
+        this.longitude = null;
+        this.details = [];
+      }
 
-      parseCsv: function(plainText) {
+      get founders () {
+        return this._founders || $localStorage.founders;
+      }
+
+      set founders (founders) {
+        this._founders = founders;
+      }
+
+      parseCsv(plainText) {
         var founders = [];
         var records = csvParser.parse(plainText);
 
@@ -38,15 +47,17 @@ angular.module('app.core')
         }
 
         this.founders = founders;
-      },
+      }
 
-      setLocationHeader: function({ latitude, longitude }) {
+      setLocationHeader({ latitude, longitude }) {
         this.latitude = latitude;
         this.longitude = longitude;
-      },
+      }
 
-      setDetailHeaders: function(detailHeaders) {
+      setDetailHeaders(detailHeaders) {
         this.details = detailHeaders;
       }
-    };
+    }
+
+    return new FounderManager();
   });
