@@ -17,13 +17,34 @@ angular.module('app.core')
     }
 
     Founder.prototype = {
+      get id() {
+        return this._data['Id'];
+      },
+
       get latitude() {
         return parseFloat(this._data[this._latitude]);
       },
 
       get longitude() {
         return parseFloat(this._data[this._longitude]);
+      },
+
+      get founder() {
+        return this._data['Founder'];
       }
+    };
+
+    Founder.toFounder = function(obj) {
+      return new Founder(
+        obj._data,
+        {
+          locationHeaders: {
+            latitude: obj._latitude,
+            longitude: obj._longitude
+          },
+          detailHeaders: obj._detailHeaders
+        }
+      );
     };
 
     return Founder;

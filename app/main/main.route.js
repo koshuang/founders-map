@@ -18,7 +18,6 @@
       state: 'main',
       config: {
         url: '/',
-        abstract: true,
         ncyBreadcrumb: {
           label: 'Home'
         },
@@ -29,12 +28,15 @@
           'context@main': {
             templateUrl: 'main/main.html'
           }
+        },
+        resolve: {
+          founders: founderResolver
         }
       }
     }, {
       state: 'main.import',
       config: {
-        url: '',
+        url: 'import',
         ncyBreadcrumb: {
           label: 'Import'
         },
@@ -44,6 +46,9 @@
             templateUrl: 'main/import.html',
             controllerAs: 'vm'
           }
+        },
+        resolve: {
+          founders: founderResolver
         }
       }
     }, {
@@ -59,8 +64,24 @@
             templateUrl: 'main/map.html',
             controllerAs: 'vm'
           }
+        },
+        resolve: {
+          founders: founderResolver
         }
       }
     }];
+  }
+
+  /* @ngInject */
+  function founderResolver($state, $q, $timeout, founderManager) {
+    if (founderManager.founders.length) {
+      $timeout(function() {
+        $state.go('main.map');
+      });
+    } else {
+      $timeout(function() {
+        $state.go('main.import');
+      });
+    }
   }
 })();

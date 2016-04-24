@@ -19,7 +19,7 @@ describe('founderManager', function() {
 
       founderManager.parseCsv(csv);
 
-      var founders = founderManager.founders;
+      var founders = founderManager.foundersArray;
       var founder = founders[0];
 
 
@@ -28,7 +28,7 @@ describe('founderManager', function() {
       expect(founderManager.headers).to.deep.eq(headers);
 
       headers.forEach((header) => {
-        expect(founder._data[header]).to.be.eq(matchedFounder[header]);
+        expect(founder[header]).to.be.eq(matchedFounder[header]);
       });
     });
   });
@@ -52,6 +52,26 @@ describe('founderManager', function() {
 
       founderManager.setDetailHeaders(details);
       expect(founderManager.details.length).to.be.eq(3);
+    });
+  });
+
+  describe('convertFoundersArray()', function() {
+    it('should convert foundersArray', function() {
+      var csv = jasmine.getFixtures().read('founders.csv');
+      var locationHeader = {
+        latitude: 'Garage Latitude',
+        longitude: 'Garage Longitude'
+      };
+
+      founderManager.parseCsv(csv);
+      founderManager.setLocationHeader(locationHeader);
+      founderManager.convertFoundersArray();
+
+      var founders = founderManager.founders;
+      var founder = founders[0];
+
+      expect(founder.latitude).to.be.eq(37.457674);
+      expect(founder.longitude).to.be.eq(-122.163452);
     });
   });
 });

@@ -16,13 +16,14 @@ function MapController(founderManager) {
 
   vm.founders = founderManager.founders.map((f) => {
     return {
+      id: f.id,
       coords: {
         latitude: f.latitude,
         longitude: f.longitude
       },
       options: {
-        label: f.name,
-        title: f.name
+        label: f.founder,
+        title: f.founder
       }
     };
   });

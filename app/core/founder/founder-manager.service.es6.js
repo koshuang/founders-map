@@ -19,32 +19,43 @@ angular.module('app.core')
       }
 
       get founders () {
-        return this._founders || $localStorage.founders;
+        if (this._founders) {
+          return this._founders;
+        } else if ($localStorage.founders) {
+          return $localStorage.founders.map((f) => Founder.toFounder(f));
+        }
+        return [];
       }
 
       set founders (founders) {
+        $localStorage.founders = founders;
         this._founders = founders;
       }
 
       parseCsv(plainText) {
-        var founders = [];
+        var foundersArray = [];
         var records = csvParser.parse(plainText);
 
         if (records.length > 1) {
           var headersArray = records.shift();
           this.headers = R.map(R.trim, headersArray);
 
-          founders = records.map((r) => R.zipObj(this.headers, r));
-          founders = R.map((obj) => {
-            return new Founder(obj, {
-              locationHeaders: {
-                latitude: this.latitude,
-                longitude: this.longitude
-              },
-              detailHeaders: this.details
-            });
-          }, founders);
+          foundersArray = records.map((r) => R.zipObj(this.headers, r));
         }
+
+        this.foundersArray = foundersArray;
+      }
+
+      convertFoundersArray() {
+        var founders = R.map((obj) => {
+          return new Founder(obj, {
+            locationHeaders: {
+              latitude: this.latitude,
+              longitude: this.longitude
+            },
+            detailHeaders: this.details
+          });
+        }, this.foundersArray);
 
         this.founders = founders;
       }
