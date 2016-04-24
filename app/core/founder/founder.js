@@ -9,12 +9,21 @@
  */
 angular.module('app.core')
   .factory('Founder', function() {
-    function Founder() {
-
+    function Founder(data, meta) {
+      this._data = data;
+      this._latitude = meta.locationHeaders.latitude;
+      this._longitude = meta.locationHeaders.longitude;
+      this._detailHeaders = meta.detailHeaders;
     }
 
     Founder.prototype = {
+      get latitude() {
+        return parseFloat(this._data[this._latitude]);
+      },
 
+      get longitude() {
+        return parseFloat(this._data[this._longitude]);
+      }
     };
 
     return Founder;

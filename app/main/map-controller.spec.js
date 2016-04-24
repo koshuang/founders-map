@@ -5,10 +5,12 @@ describe('MapController', function() {
 
   beforeEach(function() {
     bard.appModule('app');
-    bard.inject('$rootScope', '$controller', 'mockFounders');
+    bard.inject('$rootScope', '$controller', 'founderManager', 'mockFounders');
+
+    founderManager.founders = mockFounders;
 
     vm = $controller('MapController', {
-      mockFounders: mockFounders
+      founderManager: founderManager
     });
   });
 

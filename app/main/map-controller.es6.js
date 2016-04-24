@@ -10,13 +10,12 @@
 angular.module('app.main')
   .controller('MapController', MapController);
 
-function MapController(mockFounders) {
+function MapController(founderManager) {
   var vm = this;
   var founder;
 
-  vm.founders = mockFounders.map((f) => {
+  vm.founders = founderManager.founders.map((f) => {
     return {
-      id: f.id,
       coords: {
         latitude: f.latitude,
         longitude: f.longitude

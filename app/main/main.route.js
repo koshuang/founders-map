@@ -32,9 +32,24 @@
         }
       }
     }, {
-      state: 'main.map',
+      state: 'main.import',
       config: {
         url: '',
+        ncyBreadcrumb: {
+          label: 'Import'
+        },
+        views: {
+          'main-context': {
+            controller: 'ImportController',
+            templateUrl: 'main/import.html',
+            controllerAs: 'vm'
+          }
+        }
+      }
+    }, {
+      state: 'main.map',
+      config: {
+        url: 'map',
         ncyBreadcrumb: {
           label: 'Map'
         },

@@ -8,38 +8,27 @@ describe('founderManager', function() {
     bard.inject('founderManager');
 
     jasmine.getFixtures().fixturesPath =
+    jasmine.getJSONFixtures().fixturesPath =
       'base/app/core/founder/fixtures';
   });
 
   describe('parseCsv()', function() {
     it('should convert csv and save founders', function() {
       var csv = jasmine.getFixtures().read('founders.csv');
+      var matchedFounder = getJSONFixture('founder.json');
 
       founderManager.parseCsv(csv);
 
       var founders = founderManager.founders;
       var founder = founders[0];
 
-      var matchedFounder = {
-        'Id': 1,
-        'Company Name': 'Google',
-        'Founder': 'Larry Page & Sergey Brin',
-        'City': 'Mountain View',
-        'Country': 'USA',
-        'Postal Code': 'CA 94043',
-        'Street': '1600 Amphitheatre Pkwy',
-        'Photo': 'http://interviewsummary.com/wp-content/uploads/2013/07/larry-page-and-sergey-brin-of-google-620x400.jpg',
-        'Home Page': 'http://google.com',
-        'Garage Latitude': 37.457674,
-        'Garage Longitude': '-122.163452'
-      };
 
       var headers = Object.keys(matchedFounder);
 
       expect(founderManager.headers).to.deep.eq(headers);
 
       headers.forEach((header) => {
-        expect(founder[header]).to.be.eq(matchedFounder[header]);
+        expect(founder._data[header]).to.be.eq(matchedFounder[header]);
       });
     });
   });
