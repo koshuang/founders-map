@@ -30,7 +30,7 @@
           }
         },
         resolve: {
-          founders: founderResolver
+          redirectResolver: redirectResolver
         }
       }
     }, {
@@ -48,7 +48,28 @@
           }
         },
         resolve: {
-          founders: founderResolver
+          redirectResolver: redirectResolver
+        }
+      }
+    }, {
+      state: 'main.list',
+      config: {
+        url: 'list',
+        ncyBreadcrumb: {
+          label: 'List'
+        },
+        views: {
+          'main-context': {
+            controller: 'ListController',
+            templateUrl: 'main/list.html',
+            controllerAs: 'vm'
+          }
+        },
+        resolve: {
+          redirectResolver: redirectResolver,
+          founders: function($state, $q, $timeout, founderManager) {
+            return founderManager.founders;
+          }
         }
       }
     }, {
@@ -66,22 +87,20 @@
           }
         },
         resolve: {
-          founders: founderResolver
+          redirectResolver: redirectResolver
         }
       }
     }];
   }
 
   /* @ngInject */
-  function founderResolver($state, $q, $timeout, founderManager) {
-    if (founderManager.founders.length) {
-      $timeout(function() {
-        $state.go('main.map');
-      });
-    } else {
-      $timeout(function() {
-        $state.go('main.import');
-      });
+  function redirectResolver($state, $q, $timeout, founderManager) {
+    if (!founderManager.founders.length) {
+      if ($state.name !== 'main.import') {
+        $timeout(function() {
+          $state.go('main.import');
+        });
+      }
     }
   }
 })();

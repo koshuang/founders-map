@@ -6,7 +6,7 @@
      * Angular modules
      */
     'ngAnimate', 'ngRoute', 'ngCookies', 'ngSanitize', 'ngResource',
-    'ngStorage',
+    'ngStorage', 'ngTable',
     /*
      * Our reusable cross app code modules
      */

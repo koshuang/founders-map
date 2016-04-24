@@ -1,0 +1,18 @@
+<h2>List</h2>
+
+<table ng-table="vm.tableParams">
+  <tr ng-repeat="row in $data track by row.id">
+    <td title="'Id'"
+        sortable="'id'">
+        {{row.id}}
+    </td>
+    <td title="'Latitude'"
+        sortable="'latitude'">
+        {{row.latitude}}
+    </td>
+    <td title="'Longitude'"
+        sortable="'longitude'">
+        {{row.longitude}}
+    </td>
+  </tr>
+</table>
