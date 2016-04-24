@@ -1,0 +1,11 @@
+<h2>Fields Selector<h2>
+
+Latitude:
+<select ng-model="vm.latitude" ng-options="str for str in vm.headers">
+</select>
+
+Longitude:
+<select ng-model="vm.longitude" ng-options="str for str in vm.headers">
+</select>
+
+<button ng-click="vm.submit()">Submit</button>

@@ -52,6 +52,28 @@
         }
       }
     }, {
+      state: 'main.fields-selector',
+      config: {
+        url: 'fields-selector',
+        ncyBreadcrumb: {
+          label: 'Field Selector'
+        },
+        views: {
+          'main-context': {
+            controller: 'FieldsSelectorController',
+            templateUrl: 'main/fields-selector.html',
+            controllerAs: 'vm'
+          }
+        },
+        resolve: {
+          redirectResolver: redirectResolver,
+          /* @ngInject */
+          founders: function($state, $q, $timeout, founderManager) {
+            return founderManager.founders;
+          }
+        }
+      }
+    }, {
       state: 'main.list',
       config: {
         url: 'list',
@@ -67,6 +89,7 @@
         },
         resolve: {
           redirectResolver: redirectResolver,
+          /* @ngInject */
           founders: function($state, $q, $timeout, founderManager) {
             return founderManager.founders;
           }
@@ -95,7 +118,7 @@
 
   /* @ngInject */
   function redirectResolver($state, $q, $timeout, founderManager) {
-    if (!founderManager.founders.length) {
+    if (!founderManager.foundersArray.length) {
       if ($state.name !== 'main.import') {
         $timeout(function() {
           $state.go('main.import');

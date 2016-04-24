@@ -12,10 +12,6 @@ angular.module('app.main')
 
 function ImportController($state, founderManager) {
   var vm = this;
-  var locationHeader = {
-    latitude: 'Garage Latitude',
-    longitude: 'Garage Longitude'
-  };
 
   vm.text = '';
   vm.founders = [];
@@ -28,9 +24,7 @@ function ImportController($state, founderManager) {
     }
 
     founderManager.parseCsv(vm.text);
-    founderManager.setLocationHeader(locationHeader);
-    founderManager.convertFoundersArray();
 
-    $state.go('main.map');
+    $state.go('main.fields-selector');
   }
 }
