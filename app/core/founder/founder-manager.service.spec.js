@@ -17,7 +17,7 @@ describe('founderManager', function() {
       var csv = jasmine.getFixtures().read('founders.csv');
       var matchedFounder = getJSONFixture('founder.json');
 
-      founderManager.parseCsv(csv);
+      founderManager.parseCsv(csv, ',');
 
       var founders = founderManager.foundersArray;
       var founder = founders[0];

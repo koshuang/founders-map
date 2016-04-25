@@ -14,7 +14,12 @@ function ImportController($state, founderManager) {
   var vm = this;
 
   vm.text = '';
-  vm.founders = [];
+  vm.separators = {
+    comma: ',',
+    semicolon: ';',
+    tab: '\t'
+  };
+  vm.separator = vm.separators.comma;
 
   vm.submit = submit;
 
@@ -23,7 +28,7 @@ function ImportController($state, founderManager) {
       return;
     }
 
-    founderManager.parseCsv(vm.text);
+    founderManager.parseCsv(vm.text, vm.separator);
 
     $state.go('main.fields-selector');
   }

@@ -64,9 +64,9 @@ angular.module('app.core')
         this._foundersArray = foundersArray;
       }
 
-      parseCsv(plainText) {
+      parseCsv(plainText, separator = ',') {
         var foundersArray = [];
-        var records = csvParser.parse(plainText);
+        var records = csvParser.parse(plainText, separator);
 
         if (records.length > 1) {
           var headersArray = records.shift();

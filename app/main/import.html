@@ -1,5 +1,8 @@
 <div class="import">
   <h2>import</h2>
+  separator:
+  <select ng-model="vm.separator"
+          ng-options="key for (key, value) in vm.separators"></select><br>
   <textarea class="csv" ng-model="vm.text">
   </textarea>
   <button ng-click="vm.submit()">Submit</button>
