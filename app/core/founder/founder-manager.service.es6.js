@@ -12,6 +12,7 @@ angular.module('app.core')
 
     class FounderManager {
       constructor() {
+        this.label = null;
         this.latitude = null;
         this.longitude = null;
         this.details = [];
@@ -85,6 +86,7 @@ angular.module('app.core')
               latitude: this.latitude,
               longitude: this.longitude
             },
+            labelHeader: this.label,
             detailHeaders: this.details
           });
         }, this.foundersArray);
@@ -95,6 +97,10 @@ angular.module('app.core')
       setLocationHeader({ latitude, longitude }) {
         this.latitude = latitude;
         this.longitude = longitude;
+      }
+
+      setLabelHeader(label) {
+        this.label = label;
       }
 
       setDetailHeaders(detailHeaders) {

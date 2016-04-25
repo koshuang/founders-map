@@ -18,6 +18,7 @@ describe('Founder', function() {
         latitude: 'Garage Latitude',
         longitude: 'Garage Longitude'
       },
+      labelHeader: 'Founder',
       detailHeaders: ['City']
     });
   });
@@ -25,6 +26,12 @@ describe('Founder', function() {
   describe('Founder()', function() {
     it('should create a founder instance', function() {
       expect(founder).to.be.instanceof(Founder);
+    });
+  });
+
+  describe('label', function() {
+    it('should get label', function() {
+      expect(founder.label).to.be.eq('Larry Page & Sergey Brin');
     });
   });
 

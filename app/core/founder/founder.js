@@ -14,12 +14,17 @@ angular.module('app.core')
       this._data = data;
       this._latitude = meta.locationHeaders.latitude;
       this._longitude = meta.locationHeaders.longitude;
+      this._label = meta.labelHeader;
       this._detailHeaders = meta.detailHeaders;
     }
 
     Founder.prototype = {
       get id() {
         return this._data['Id'];
+      },
+
+      get label() {
+        return this._data[this._label];
       },
 
       get latitude() {
@@ -43,6 +48,7 @@ angular.module('app.core')
             latitude: obj._latitude,
             longitude: obj._longitude
           },
+          labelHeader: obj._label,
           detailHeaders: obj._detailHeaders
         }
       );

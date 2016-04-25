@@ -22,8 +22,9 @@ function MapController(founderManager) {
         longitude: f.longitude
       },
       options: {
-        label: f.founder,
-        title: f.founder
+        labelContent: f.label,
+        labelClass: 'marker-labels',
+        title: f.label
       }
     };
   });

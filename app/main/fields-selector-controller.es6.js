@@ -17,6 +17,7 @@ function FieldsSelectorController($state, founderManager) {
   vm.headers = founderManager.headers;
   vm.latitude = null;
   vm.longitude = null;
+  vm.label = null;
 
   vm.submit = submit;
 
@@ -25,6 +26,8 @@ function FieldsSelectorController($state, founderManager) {
       latitude: vm.latitude,
       longitude: vm.longitude
     });
+
+    founderManager.setLabelHeader(vm.label);
 
     founderManager.convertFoundersArray();
 

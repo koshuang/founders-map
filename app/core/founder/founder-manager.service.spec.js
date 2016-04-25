@@ -21,8 +21,6 @@ describe('founderManager', function() {
 
       var founders = founderManager.foundersArray;
       var founder = founders[0];
-
-
       var headers = Object.keys(matchedFounder);
 
       expect(founderManager.headers).to.deep.eq(headers);
@@ -34,7 +32,7 @@ describe('founderManager', function() {
   });
 
   describe('setLocationHeader()', function() {
-    it('should set latitude and longitude', function() {
+    it('should set latitude and longitude header', function() {
       var locationHeader = {
         latitude: 'Garage Latitude',
         longitude: 'Garage Longitude'
@@ -43,6 +41,15 @@ describe('founderManager', function() {
       founderManager.setLocationHeader(locationHeader);
       expect(founderManager.latitude).to.deep.eq('Garage Latitude');
       expect(founderManager.longitude).to.deep.eq('Garage Longitude');
+    });
+  });
+
+  describe('setLabelHeader()', function() {
+    it('should set label header', function() {
+      var header = 'Founder';
+
+      founderManager.setLabelHeader(header);
+      expect(founderManager.label).to.deep.eq(header);
     });
   });
 
