@@ -2,7 +2,7 @@
 describe('Founder', function() {
   'use strict';
 
-  var founder;
+  var founder, founderObj;
 
   beforeEach(function() {
     bard.appModule('app');
@@ -11,7 +11,7 @@ describe('Founder', function() {
     jasmine.getJSONFixtures().fixturesPath =
       'base/app/core/founder/fixtures';
 
-    var founderObj = getJSONFixture('founder.json');
+    founderObj = getJSONFixture('founder.json');
 
     founder = new Founder(founderObj, {
       locationHeaders: {
@@ -26,6 +26,10 @@ describe('Founder', function() {
   describe('Founder()', function() {
     it('should create a founder instance', function() {
       expect(founder).to.be.instanceof(Founder);
+    });
+
+    it('should contain same data as founderObj', function() {
+      expect(founder.Id).to.be.eq(founderObj.Id);
     });
   });
 

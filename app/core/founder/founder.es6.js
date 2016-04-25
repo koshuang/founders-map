@@ -9,9 +9,10 @@
  * Factory in the app.
  */
 angular.module('app.core')
-  .factory('Founder', function() {
+  .factory('Founder', function(_) {
     class Founder {
       constructor(data, meta) {
+        _.assign(this, data);
         this._data = data;
         this._latitude = meta.locationHeaders.latitude;
         this._longitude = meta.locationHeaders.longitude;
