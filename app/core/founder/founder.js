@@ -10,49 +10,49 @@
  */
 angular.module('app.core')
   .factory('Founder', function() {
-    function Founder(data, meta) {
-      this._data = data;
-      this._latitude = meta.locationHeaders.latitude;
-      this._longitude = meta.locationHeaders.longitude;
-      this._label = meta.labelHeader;
-      this._detailHeaders = meta.detailHeaders;
-    }
+    class Founder {
+      constructor(data, meta) {
+        this._data = data;
+        this._latitude = meta.locationHeaders.latitude;
+        this._longitude = meta.locationHeaders.longitude;
+        this._label = meta.labelHeader;
+        this._detailHeaders = meta.detailHeaders;
+      }
 
-    Founder.prototype = {
+       static toFounder(obj) {
+        return new Founder(
+          obj._data,
+          {
+            locationHeaders: {
+              latitude: obj._latitude,
+              longitude: obj._longitude
+            },
+            labelHeader: obj._label,
+            detailHeaders: obj._detailHeaders
+          }
+        );
+      }
+
       get id() {
         return this._data['Id'];
-      },
+      }
 
       get label() {
         return this._data[this._label];
-      },
+      }
 
       get latitude() {
         return parseFloat(this._data[this._latitude]);
-      },
+      }
 
       get longitude() {
         return parseFloat(this._data[this._longitude]);
-      },
+      }
 
       get founder() {
         return this._data['Founder'];
       }
-    };
-
-    Founder.toFounder = function(obj) {
-      return new Founder(
-        obj._data,
-        {
-          locationHeaders: {
-            latitude: obj._latitude,
-            longitude: obj._longitude
-          },
-          labelHeader: obj._label,
-          detailHeaders: obj._detailHeaders
-        }
-      );
-    };
+    }
 
     return Founder;
   });
