@@ -10,10 +10,21 @@
 angular.module('app.main')
   .controller('ListController', ListController);
 
-function ListController(founders, NgTableParams) {
+function ListController(founderManager, NgTableParams) {
   var vm = this;
 
-  vm.founders = founders;
+  vm.founders = founderManager.founders;
+  vm.headers = founderManager.headers.map((h) => {
+    return {
+      title: h,
+      field: h,
+      visible: true,
+      sortable: h,
+      filter: {
+        [h]: 'text'
+      }
+    };
+  });
 
   vm.tableParams = new NgTableParams({
     page: 1, // show first page

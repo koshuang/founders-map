@@ -88,11 +88,7 @@
           }
         },
         resolve: {
-          redirectResolver: redirectResolver,
-          /* @ngInject */
-          founders: function($state, $q, $timeout, founderManager) {
-            return founderManager.founders;
-          }
+          redirectResolver: redirectResolver
         }
       }
     }, {
