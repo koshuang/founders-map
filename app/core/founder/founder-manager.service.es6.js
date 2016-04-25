@@ -8,7 +8,7 @@
  * Factory in the app.
  */
 angular.module('app.core')
-  .factory('founderManager', (csvParser, R, Founder, $localStorage) => {
+  .factory('founderManager', (csvParser, _, Founder, $localStorage) => {
 
     class FounderManager {
       constructor() {
@@ -71,16 +71,16 @@ angular.module('app.core')
 
         if (records.length > 1) {
           var headersArray = records.shift();
-          this.headers = R.map(R.trim, headersArray);
+          this.headers = _.map(headersArray, _.trim);
 
-          foundersArray = records.map((r) => R.zipObj(this.headers, r));
+          foundersArray = records.map((r) => _.zipObject(this.headers, r));
         }
 
         this.foundersArray = foundersArray;
       }
 
       convertFoundersArray() {
-        var founders = R.map((obj) => {
+        var founders = _.map(this.foundersArray, (obj) => {
           return new Founder(obj, {
             locationHeaders: {
               latitude: this.latitude,
@@ -89,7 +89,7 @@ angular.module('app.core')
             labelHeader: this.label,
             detailHeaders: this.details
           });
-        }, this.foundersArray);
+        });
 
         this.founders = founders;
       }
