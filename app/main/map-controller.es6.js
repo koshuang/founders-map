@@ -14,20 +14,24 @@ function MapController(founderManager) {
   var vm = this;
   var founder;
 
-  vm.founders = founderManager.founders.map((f) => {
-    return {
-      id: f.id,
-      coords: {
-        latitude: f.latitude,
-        longitude: f.longitude
-      },
-      options: {
-        labelContent: f.label,
-        labelClass: 'marker-labels',
-        title: f.label
-      }
-    };
-  });
+  vm.founders = founderManager.founders
+    .filter((f) => {
+      return f.enabled;
+    })
+    .map((f) => {
+      return {
+        id: f.id,
+        coords: {
+          latitude: f.latitude,
+          longitude: f.longitude
+        },
+        options: {
+          labelContent: f.label,
+          labelClass: 'marker-labels',
+          title: f.label
+        }
+      };
+    });
 
   founder = vm.founders[0];
 

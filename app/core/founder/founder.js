@@ -17,6 +17,7 @@ angular.module('app.core')
         this._longitude = meta.locationHeaders.longitude;
         this._label = meta.labelHeader;
         this._detailHeaders = meta.detailHeaders;
+        this.enabled = true;
       }
 
        static toFounder(obj) {

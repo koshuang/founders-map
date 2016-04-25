@@ -7,6 +7,11 @@ describe('ListController', function() {
     bard.appModule('app');
     bard.inject('$rootScope', '$controller', 'mockFounders');
 
+    mockFounders = mockFounders.map((f) => {
+      f.enabled = true;
+      return f;
+    });
+
     vm = $controller('ListController', {
       founders: mockFounders
     });

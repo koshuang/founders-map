@@ -2,6 +2,10 @@
 
 <table ng-table="vm.tableParams">
   <tr ng-repeat="row in $data track by row.id">
+    <td title="'Enabled'"
+        sortable="'enabled'">
+        <input type="checkbox" ng-model="row.enabled">
+    </td>
     <td title="'Id'"
         sortable="'id'">
         {{row.id}}

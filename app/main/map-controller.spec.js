@@ -7,6 +7,11 @@ describe('MapController', function() {
     bard.appModule('app');
     bard.inject('$rootScope', '$controller', 'founderManager', 'mockFounders');
 
+    mockFounders = mockFounders.map((f) => {
+      f.enabled = true;
+      return f;
+    });
+
     founderManager.founders = mockFounders;
 
     vm = $controller('MapController', {
