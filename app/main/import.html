@@ -4,7 +4,7 @@
 
     <md-input-container class="md-block" layout="row">
       <label>CSV Separator</label>
-      <md-select ng-model="vm.separator" flex="33">
+      <md-select ng-model="vm.separator" flex-sm="100" flex-gt-sm="33">
         <md-option ng-repeat="s in vm.separators" value="{{s.value}}">
          {{s.label}}
         </md-option>
