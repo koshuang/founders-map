@@ -10,8 +10,8 @@
 angular.module('app.core')
   .filter('fmLink', function() {
     return (input) => {
-      if (input.startsWith('http')) {
-        if (input.endsWith('jpg')) {
+      if (input.startsWith && input.startsWith('http')) {
+        if (input.endsWith && input.endsWith('jpg')) {
           return `<image class="fm-thumbnail" src="${input}">`;
         } else {
           return `<a href="${input}">${input}</a>`;
