@@ -15,8 +15,8 @@ describe('Founder', function() {
 
     founder = new Founder(founderObj, {
       locationHeaders: {
-        latitude: 'Garage Latitude',
-        longitude: 'Garage Longitude'
+        latitude: 'GarageLatitude',
+        longitude: 'GarageLongitude'
       },
       labelHeader: 'Founder',
       detailHeaders: ['City']

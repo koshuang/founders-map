@@ -10,13 +10,13 @@
 angular.module('app.main')
   .controller('ListController', ListController);
 
-function ListController(founderManager, NgTableParams) {
+function ListController(founderManager, NgTableParams, fmHeaderFilter) {
   var vm = this;
 
   vm.founders = founderManager.founders;
   vm.headers = founderManager.headers.map((h) => {
     return {
-      title: h,
+      title: fmHeaderFilter(h),
       field: h,
       visible: true,
       sortable: h,

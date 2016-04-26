@@ -34,13 +34,13 @@ describe('founderManager', function() {
   describe('setLocationHeader()', function() {
     it('should set latitude and longitude header', function() {
       var locationHeader = {
-        latitude: 'Garage Latitude',
-        longitude: 'Garage Longitude'
+        latitude: 'GarageLatitude',
+        longitude: 'GarageLongitude'
       };
 
       founderManager.setLocationHeader(locationHeader);
-      expect(founderManager.latitude).to.deep.eq('Garage Latitude');
-      expect(founderManager.longitude).to.deep.eq('Garage Longitude');
+      expect(founderManager.latitude).to.deep.eq('GarageLatitude');
+      expect(founderManager.longitude).to.deep.eq('GarageLongitude');
     });
   });
 
@@ -55,7 +55,7 @@ describe('founderManager', function() {
 
   describe('setDetailHeaders()', function() {
     it('should set detail headers', function() {
-      var details = ['City', 'Street', 'Postal Code'];
+      var details = ['City', 'Street', 'PostalCode'];
 
       founderManager.setDetailHeaders(details);
       expect(founderManager.details.length).to.be.eq(3);
@@ -66,8 +66,8 @@ describe('founderManager', function() {
     it('should convert foundersArray', function() {
       var csv = jasmine.getFixtures().read('founders.csv');
       var locationHeader = {
-        latitude: 'Garage Latitude',
-        longitude: 'Garage Longitude'
+        latitude: 'GarageLatitude',
+        longitude: 'GarageLongitude'
       };
 
       founderManager.parseCsv(csv);

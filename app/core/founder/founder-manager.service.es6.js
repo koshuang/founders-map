@@ -71,7 +71,13 @@ angular.module('app.core')
 
         if (records.length > 1) {
           var headersArray = records.shift();
-          this.headers = _.map(headersArray, _.trim);
+          this.headers = _.map(headersArray, _.flow(
+            _.trim,
+            (h) => {
+              // remove space
+              return _.replace(h, ' ', '');
+            }
+          ));
 
           foundersArray = records.map((r) => _.zipObject(this.headers, r));
         }
