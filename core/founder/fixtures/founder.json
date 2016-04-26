@@ -1,13 +1,13 @@
 {
   "Id": 1,
-  "Company Name": "Google",
+  "CompanyName": "Google",
   "Founder": "Larry Page & Sergey Brin",
   "City": "Mountain View",
   "Country": "USA",
-  "Postal Code": "CA 94043",
+  "PostalCode": "CA 94043",
   "Street": "1600 Amphitheatre Pkwy",
   "Photo": "http://interviewsummary.com/wp-content/uploads/2013/07/larry-page-and-sergey-brin-of-google-620x400.jpg",
-  "Home Page": "http://google.com",
-  "Garage Latitude": 37.457674,
-  "Garage Longitude": "-122.163452"
+  "HomePage": "http://google.com",
+  "GarageLatitude": 37.457674,
+  "GarageLongitude": "-122.163452"
 }
