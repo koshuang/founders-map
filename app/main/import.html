@@ -1,9 +1,22 @@
-<div class="import">
-  <h2>import</h2>
-  separator:
-  <select ng-model="vm.separator"
-          ng-options="key for (key, value) in vm.separators"></select><br>
-  <textarea class="csv" ng-model="vm.text">
-  </textarea>
-  <button ng-click="vm.submit()">Submit</button>
-</div>
+<md-content flex-gt-sm="75">
+  <div class="import">
+    <h2>Import CSV content</h2>
+
+    <md-input-container class="md-block" layout="row">
+      <label>CSV Separator</label>
+      <md-select ng-model="vm.separator" flex="33">
+        <md-option ng-repeat="s in vm.separators" value="{{s.value}}">
+         {{s.label}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <label>CSV Content</label>
+      <textarea ng-model="vm.text" rows="5" md-select-on-focus=""></textarea>
+    </md-input-container>
+    <md-button class="md-raised md-primary" ng-click="vm.submit()" ng-disabled="!vm.text">
+      Submit
+    </md-button>
+  </div>
+</md-content>

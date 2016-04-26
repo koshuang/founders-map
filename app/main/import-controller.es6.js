@@ -14,12 +14,17 @@ function ImportController($state, founderManager) {
   var vm = this;
 
   vm.text = '';
-  vm.separators = {
-    comma: ',',
-    semicolon: ';',
-    tab: '\t'
-  };
-  vm.separator = vm.separators.comma;
+  vm.separators = [{
+    label: 'comma',
+    value: ','
+  }, {
+    label: 'semicolon',
+    value: ';'
+  }, {
+    label: 'tab',
+    value: '\t'
+  }];
+  vm.separator = vm.separators[0].value;
 
   vm.submit = submit;
 

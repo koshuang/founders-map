@@ -26,7 +26,7 @@ describe('ImportController', function() {
     it('should contain text and submit()', function() {
       expect(vm.text).to.be.eq('');
       expect(vm.separators).to.not.be.null;
-      expect(vm.separator).to.be.eq(vm.separators.comma);
+      expect(vm.separator).to.be.eq(vm.separators[0].value);
       expect(vm.submit).to.not.be.null;
     });
   });
