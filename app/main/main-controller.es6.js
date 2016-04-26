@@ -10,12 +10,20 @@
 angular.module('app.main')
   .controller('MainController', MainController);
 
-function MainController($state) {
+function MainController($state, founderManager) {
   var vm = this;
   var indexes = {
     'main.list': 0,
     'main.map': 1
   };
 
-  vm.selectedTab = indexes[$state.current.name];
+  activate();
+
+  function activate() {
+    vm.selectedTab = indexes[$state.current.name];
+
+    if (founderManager.founders.length) {
+      $state.go('main.list');
+    }
+  }
 }

@@ -5,10 +5,11 @@ describe('MainController', function() {
 
   beforeEach(function() {
     bard.appModule('app');
-    bard.inject('$controller');
+    bard.inject('$controller', 'founderManager');
 
     $state = {
-      current: {}
+      current: {},
+      go: sinon.spy()
     };
   });
 
@@ -31,6 +32,16 @@ describe('MainController', function() {
       });
 
       expect(vm.selectedTab).to.be.eq(1);
+    });
+
+    it('should redirect to main.list page if founderManager.founder is not empty', function() {
+      founderManager.founders = ['Test'];
+
+      vm = $controller('MainController', {
+        $state: $state
+      });
+
+      expect($state.go.calledWith('main.list')).to.be.ok;
     });
   });
 });
