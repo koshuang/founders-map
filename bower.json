@@ -2,16 +2,16 @@
   "name": "founders-map",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.4.1",
+    "angular": "1.5.5",
     "json3": "3.3.1",
     "es5-shim": "3.1.0",
     "bootstrap": "~3.3.5",
-    "angular-resource": "1.4.1",
-    "angular-cookies": "1.4.1",
-    "angular-sanitize": "1.4.1",
-    "angular-animate": "1.4.1",
-    "angular-touch": "1.4.1",
-    "angular-route": "1.4.1",
+    "angular-resource": "1.5.5",
+    "angular-cookies": "1.5.5",
+    "angular-sanitize": "1.5.5",
+    "angular-animate": "1.5.5",
+    "angular-touch": "1.5.5",
+    "angular-route": "1.5.5",
     "angulartics": "~0.20.2",
     "modernizr": "2.8.3",
     "ui-router": "0.2.13",
@@ -24,8 +24,8 @@
     "lodash": "^4.11.2"
   },
   "devDependencies": {
-    "angular-mocks": "1.4.1",
-    "angular-scenario": "1.4.1",
+    "angular-mocks": "1.5.5",
+    "angular-scenario": "1.5.5",
     "bardjs": "~0.1.8",
     "jasmine-jquery": "~2.1.1"
   },
@@ -41,12 +41,18 @@
         "css/font-awesome.css",
         "fonts/*"
       ]
+    },
+    "ng-table": {
+      "main": [
+        "dist/ng-table.js",
+        "dist/ng-table.min.css"
+      ]
     }
   },
   "appPath": "app",
   "resolutions": {
     "swiper": "2.7.0",
-    "angular": "1.4.1",
+    "angular": "1.5.5",
     "lodash": "3.0.0"
   }
 }
