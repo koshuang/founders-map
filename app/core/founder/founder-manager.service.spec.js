@@ -5,11 +5,54 @@ describe('founderManager', function() {
 
   beforeEach(function() {
     bard.appModule('app');
-    bard.inject('founderManager');
+    bard.inject('$localStorage', 'founderManager');
 
     jasmine.getFixtures().fixturesPath =
     jasmine.getJSONFixtures().fixturesPath =
       'base/app/core/founder/fixtures';
+
+    delete $localStorage.founders;
+    delete $localStorage.headers;
+  });
+
+  describe('set founders', function() {
+    it('should set $localStorage.founders', function() {
+      founderManager.founders = ['Test'];
+
+      expect($localStorage.founders.length).to.be.eq(1);
+    });
+  });
+
+  describe('get founders', function() {
+    it('should get [] by default', function() {
+      expect(founderManager.founders.length).to.be.eq(0);
+    });
+
+    it('should get from $localStorage if founders is null', function() {
+      $localStorage.founders = ['Test'];
+
+      expect(founderManager.founders.length).to.be.eq(1);
+    });
+  });
+
+  describe('set headers', function() {
+    it('should set $localStorage.headers', function() {
+      founderManager.headers = ['Test'];
+
+      expect($localStorage.headers.length).to.be.eq(1);
+    });
+  });
+
+  describe('get headers', function() {
+    it('should get [] by default', function() {
+      expect(founderManager.headers.length).to.be.eq(0);
+    });
+
+    it('should get from $localStorage if headers is null', function() {
+      $localStorage.headers = ['Test'];
+
+      expect(founderManager.headers.length).to.be.eq(1);
+    });
   });
 
   describe('parseCsv()', function() {
