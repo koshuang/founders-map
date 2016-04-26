@@ -14,6 +14,6 @@
     /*
      * 3rd Party modules
      */
-    'ui.router', 'ui.bootstrap'
+    'ui.router', 'ui.bootstrap', 'ngMaterial'
   ]);
 })();

@@ -1,0 +1,25 @@
+.list-container {
+  padding: 2rem 1rem;
+
+  thead {
+    background-color: #565858;
+  }
+
+  th, td {
+    padding: 1rem;
+  }
+
+  a {
+    color: #ff9800;
+  }
+}
+
+.sort-indicator:before,
+.sort-indicator:after, {
+  /*border-color: #ff9800 !important;*/
+}
+
+.fm-thumbnail {
+  width: 50px;
+  border: 0;
+}

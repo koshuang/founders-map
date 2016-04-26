@@ -26,7 +26,9 @@
             templateUrl: 'layout/main-layout.html'
           },
           'context@main': {
-            templateUrl: 'main/main.html'
+            templateUrl: 'main/main.html',
+            controller: 'MainController',
+            controllerAs: 'vm'
           }
         },
         resolve: {
@@ -81,7 +83,7 @@
           label: 'List'
         },
         views: {
-          'main-context': {
+          'list-context': {
             controller: 'ListController',
             templateUrl: 'main/list.html',
             controllerAs: 'vm'
@@ -99,7 +101,7 @@
           label: 'Map'
         },
         views: {
-          'main-context': {
+          'map-context': {
             controller: 'MapController',
             templateUrl: 'main/map.html',
             controllerAs: 'vm'

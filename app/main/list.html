@@ -1,13 +1,14 @@
-<h2>List</h2>
-
-<table ng-table-dynamic="vm.tableParams with vm.headers">
-  <tr ng-repeat="row in $data track by row.id">
-    <td title="'Enabled'"
-        sortable="'enabled'">
-        <input type="checkbox" ng-model="row.enabled">
-    </td>
-    <td ng-repeat="col in $columns">
-      {{row._data[col.field]}}
-    </td>
-  </tr>
-</table>
+<div class="list-container">
+  <table ng-table-dynamic="vm.tableParams with vm.headers">
+    <tr ng-repeat="row in $data track by row.id">
+      <td ng-repeat="col in $columns">
+        <div ng-if="col.field === 'fake'">
+          <md-checkbox class="green" ng-model="row.enabled">
+          </md-checkbox>
+        </div>
+        <div ng-if="col.field !== 'fake'" ng-bind-html="row._data[col.field] | fmLink">
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

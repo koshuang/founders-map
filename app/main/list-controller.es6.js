@@ -26,6 +26,11 @@ function ListController(founderManager, NgTableParams, fmHeaderFilter) {
     };
   });
 
+  vm.headers = [{
+    title: '',
+    field: 'fake'
+  }].concat(vm.headers);
+
   vm.tableParams = new NgTableParams({
     page: 1, // show first page
     count: 10 // count per page

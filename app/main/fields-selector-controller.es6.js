@@ -31,6 +31,6 @@ function FieldsSelectorController($state, founderManager) {
 
     founderManager.convertFoundersArray();
 
-    $state.go('main.map');
+    $state.go('main.list');
   }
 }

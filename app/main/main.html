@@ -1,2 +1,12 @@
-<h1>Founder's Map</h1>
-<div ui-view="main-context"></div>
+<h1 class="md-title fm-header">Founder's Map</h1>
+
+<div ui-view="main-context">
+  <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="vm.selectedTab">
+    <md-tab label="List" ui-sref="main.list">
+      <div ui-view="list-context"></div>
+    </md-tab>
+    <md-tab label="Map" ui-sref="main.map">
+      <div ui-view="map-context" class="map"></div>
+    </md-tab>
+  </md-tabs>
+</div>
