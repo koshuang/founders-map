@@ -54,28 +54,6 @@
         }
       }
     }, {
-      state: 'main.setting',
-      config: {
-        url: 'setting',
-        ncyBreadcrumb: {
-          label: 'Field Selector'
-        },
-        views: {
-          'setting-context': {
-            controller: 'SettingController',
-            templateUrl: 'main/setting.html',
-            controllerAs: 'vm'
-          }
-        },
-        resolve: {
-          redirectResolver: redirectResolver,
-          /* @ngInject */
-          founders: function($state, $q, $timeout, founderManager) {
-            return founderManager.founders;
-          }
-        }
-      }
-    }, {
       state: 'main.list',
       config: {
         url: 'list',

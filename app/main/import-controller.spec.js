@@ -38,7 +38,7 @@ describe('ImportController', function() {
       vm.submit();
 
       expect(founderManager.parseCsv.calledWith('text')).to.be.ok;
-      expect($state.transitionTo.calledWith('main.setting')).to.be.ok;
+      expect($state.transitionTo.calledWith('main.map')).to.be.ok;
     });
   });
 });

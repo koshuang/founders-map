@@ -35,7 +35,6 @@ function ImportController($state, founderManager) {
 
     founderManager.parseCsv(vm.text, vm.separator);
 
-    // $state.go('main.setting');
-    $state.transitionTo('main.setting', null, { reload: true, notify: true });
+    $state.transitionTo('main.map', null, { reload: true, notify: true });
   }
 }
