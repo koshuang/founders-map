@@ -10,7 +10,7 @@
 angular.module('app.main')
   .controller('MapController', MapController);
 
-function MapController(founderManager, $state) {
+function MapController(founderManager, $state, $localStorage) {
   var vm = this;
   var founder;
 
@@ -18,6 +18,7 @@ function MapController(founderManager, $state) {
   vm.latitude = founderManager.latitude;
   vm.longitude = founderManager.longitude;
   vm.label = founderManager.label;
+  vm.hideSetting = $localStorage.hideSetting;
 
   if (founderManager.founders) {
     vm.founders = founderManager.founders
@@ -61,6 +62,7 @@ function MapController(founderManager, $state) {
     founderManager.setLabelHeader(vm.label);
 
     founderManager.convertFoundersArray();
+    $localStorage.hideSetting = true;
     $state.reload();
   }
 }

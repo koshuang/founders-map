@@ -1,4 +1,12 @@
 <md-content layout="row" layout-xs="column">
+  <md-button class="md-raised md-primary"
+    ng-show="vm.hideSetting"
+    ng-click="vm.hideSetting = !vm.hideSetting">
+    Show Setting
+  </md-button>
+</md-content>
+
+<md-content layout="row" layout-xs="column" ng-hide="vm.hideSetting">
   <md-input-container class="md-block" layout="row" flex>
     <label>Latitude</label>
     <md-select ng-model="vm.latitude">
@@ -28,7 +36,7 @@
 
   <md-button class="md-raised md-primary" ng-click="vm.submit()"
              ng-disabled="!vm.latitude || !vm.longitude || !vm.label">
-    Change
+    Submit
   </md-button>
 </md-content>
 
