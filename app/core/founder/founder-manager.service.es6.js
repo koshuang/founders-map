@@ -12,10 +12,52 @@ angular.module('app.core')
 
     class FounderManager {
       constructor() {
-        this.label = null;
-        this.latitude = null;
-        this.longitude = null;
         this.details = [];
+      }
+
+      get label() {
+        if (this._label) {
+          return this._label;
+        } else if ($localStorage.label) {
+          this._label = $localStorage.label;
+          return this._label;
+        }
+        return '';
+      }
+
+      set label(label) {
+        $localStorage.label = label;
+        this._label = label;
+      }
+
+      get latitude() {
+        if (this._latitude) {
+          return this._latitude;
+        } else if ($localStorage.latitude) {
+          this._latitude = $localStorage.latitude;
+          return this._latitude;
+        }
+        return '';
+      }
+
+      set latitude(latitude) {
+        $localStorage.latitude = latitude;
+        this._latitude = latitude;
+      }
+
+      get longitude() {
+        if (this._longitude) {
+          return this._longitude;
+        } else if ($localStorage.longitude) {
+          this._longitude = $localStorage.longitude;
+          return this._longitude;
+        }
+        return '';
+      }
+
+      set longitude(longitude) {
+        $localStorage.longitude = longitude;
+        this._longitude = longitude;
       }
 
       get founders() {

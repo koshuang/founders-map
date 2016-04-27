@@ -1,5 +1,5 @@
 /* jshint -W117, -W030 */
-describe('FieldsSelectorController', function() {
+describe('SettingController', function() {
   'use strict';
   var vm;
 
@@ -11,18 +11,18 @@ describe('FieldsSelectorController', function() {
       'base/app/core/founder/fixtures';
     var csv = jasmine.getFixtures().read('founders.csv');
     var $state = {
-      go: () => {}
+      transitionTo: () => {}
     };
 
     founderManager.parseCsv(csv);
 
-    vm = $controller('FieldsSelectorController', {
+    vm = $controller('SettingController', {
       $state: $state,
       founderManager: founderManager
     });
   });
 
-  describe('FieldsSelectorController()', function() {
+  describe('SettingController()', function() {
     it('should contain foundersArray', function() {
       expect(vm.foundersArray.length).to.be.eq(3);
     });

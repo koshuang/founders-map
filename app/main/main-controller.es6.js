@@ -14,16 +14,21 @@ function MainController($state, founderManager) {
   var vm = this;
   var indexes = {
     'main.list': 0,
-    'main.map': 1
+    'main.map': 1,
+    'main.setting': 2
   };
 
   activate();
 
   function activate() {
-    vm.selectedTab = indexes[$state.current.name];
+    var state = $state.current.name;
+
+    vm.selectedTab = indexes[state];
 
     if (founderManager.founders.length) {
-      $state.go('main.list');
+      if (state === 'main') {
+        $state.go('main.list');
+      }
     }
   }
 }

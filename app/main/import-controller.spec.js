@@ -13,7 +13,7 @@ describe('ImportController', function() {
     };
 
     $state = {
-      go: sinon.spy()
+      transitionTo: sinon.spy()
     };
 
     vm = $controller('ImportController', {
@@ -38,7 +38,7 @@ describe('ImportController', function() {
       vm.submit();
 
       expect(founderManager.parseCsv.calledWith('text')).to.be.ok;
-      expect($state.go.calledWith('main.fields-selector')).to.be.ok;
+      expect($state.transitionTo.calledWith('main.setting')).to.be.ok;
     });
   });
 });

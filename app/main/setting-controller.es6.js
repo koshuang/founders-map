@@ -2,22 +2,22 @@
 
 /**
  * @ngdoc function
- * @name app.controller:FieldsSelectorController
+ * @name app.controller:SettingController
  * @description
- * # FieldsSelectorController
+ * # SettingController
  * Controller of the app
  */
 angular.module('app.main')
-  .controller('FieldsSelectorController', FieldsSelectorController);
+  .controller('SettingController', SettingController);
 
-function FieldsSelectorController($state, founderManager) {
+function SettingController($state, founderManager) {
   var vm = this;
 
   vm.foundersArray = founderManager.foundersArray;
   vm.headers = founderManager.headers;
-  vm.latitude = null;
-  vm.longitude = null;
-  vm.label = null;
+  vm.latitude = founderManager.latitude;
+  vm.longitude = founderManager.longitude;
+  vm.label = founderManager.label;
 
   vm.submit = submit;
 
@@ -31,6 +31,6 @@ function FieldsSelectorController($state, founderManager) {
 
     founderManager.convertFoundersArray();
 
-    $state.go('main.list');
+    $state.transitionTo('main.list', null, { reload: true, notify: true });
   }
 }

@@ -54,16 +54,16 @@
         }
       }
     }, {
-      state: 'main.fields-selector',
+      state: 'main.setting',
       config: {
-        url: 'fields-selector',
+        url: 'setting',
         ncyBreadcrumb: {
           label: 'Field Selector'
         },
         views: {
-          'main-context': {
-            controller: 'FieldsSelectorController',
-            templateUrl: 'main/fields-selector.html',
+          'setting-context': {
+            controller: 'SettingController',
+            templateUrl: 'main/setting.html',
             controllerAs: 'vm'
           }
         },

@@ -34,8 +34,19 @@ describe('MainController', function() {
       expect(vm.selectedTab).to.be.eq(1);
     });
 
-    it('should redirect to main.list page if founderManager.founder is not empty', function() {
+    it('should get correct selectedTab for state main.setting', function() {
+      $state.current.name = 'main.setting';
+
+      vm = $controller('MainController', {
+        $state: $state
+      });
+
+      expect(vm.selectedTab).to.be.eq(2);
+    });
+
+    it('should redirect to main.list page if founderManager.founders is not empty', function() {
       founderManager.founders = ['Test'];
+      $state.current.name = 'main';
 
       vm = $controller('MainController', {
         $state: $state
