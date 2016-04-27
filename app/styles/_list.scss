@@ -2,29 +2,26 @@
   padding: 1rem 0 0 1rem;
 
   thead {
-    background-color: #565858;
+    background-color: $color1;
   }
 
-  th, td {
+  th,
+  td {
     padding: 1rem;
   }
 
   a {
-    color: #ff9800;
+    color: $primary-palette;
   }
-}
-
-.sort-indicator:before,
-.sort-indicator:after, {
-  /*border-color: #ff9800 !important;*/
 }
 
 .fm-thumbnail {
   width: 50px;
-  border: 0;
 }
 
 // hack ng-material to make it scrollable
-md-tab-content.md-no-scroll {
-  overflow-x: scroll;
+md-tab-content {
+  &.md-no-scroll {
+    overflow-x: scroll;
+  }
 }

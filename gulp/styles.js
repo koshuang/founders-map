@@ -24,10 +24,9 @@ module.exports = function(options) {
 
   gulp.task('styles:inject', function () {
     var injectFiles = gulp.src([
+      options.src + '/styles/_variable.scss',
       options.src + '/styles/**/*.scss',
-      '!' + options.src + '/styles/main.scss',
-      '!' + options.src + '/styles/vendor.scss',
-      '!' + options.src + '/styles/_setting.scss'
+      '!' + options.src + '/styles/app.scss'
     ], { read: false });
 
     var injectOptions = {
@@ -42,11 +41,11 @@ module.exports = function(options) {
       addRootSlash: false
     };
 
-    var mainFilter = $.filter('main.scss');
+    var mainFilter = $.filter('app.scss');
     var vendorFilter = $.filter('vendor.scss');
 
     return gulp.src([
-        options.src + '/styles/main.scss',
+        options.src + '/styles/app.scss',
         options.src + '/styles/vendor.scss',
       ])
       .pipe(mainFilter)
