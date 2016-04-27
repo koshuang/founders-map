@@ -19,10 +19,7 @@ function ListController(founderManager, NgTableParams, fmHeaderFilter) {
       title: fmHeaderFilter(h),
       field: h,
       visible: true,
-      sortable: h,
-      filter: {
-        [h]: 'text'
-      }
+      sortable: h
     };
   });
 
