@@ -23,3 +23,8 @@
   width: 50px;
   border: 0;
 }
+
+// hack ng-material to make it scrollable
+md-tab-content.md-no-scroll {
+  overflow-x: scroll;
+}
