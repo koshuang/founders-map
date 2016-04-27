@@ -1,4 +1,20 @@
-<div class="list-container">
+<div class="list-container" layout="row">
+  <md-input-container class="md-block" layout="row" flex="10">
+    <label>Filter By</label>
+    <md-select ng-model="vm.filterField">
+      <md-option ng-repeat="s in vm.headers" value="{{s.field}}">
+        {{s.title | fmHeader}}
+      </md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container md-no-float class="md-block">
+    <input ng-model="vm.tableParams.filter()[vm.filterField]"
+      placeholder="Search Keyword">
+  </md-input-container>
+</div>
+
+
+<div class="list-container" layout="column">
   <table ng-table-dynamic="vm.tableParams with vm.headers">
     <tr ng-repeat="row in $data track by row.id">
       <td ng-repeat="col in $columns">
