@@ -1,5 +1,5 @@
 <div class="list-container" layout="row">
-  <md-input-container class="md-block" layout="row" flex="10">
+  <md-input-container class="md-block" layout="row" flex="10" flex-xs="30">
     <label>Filter By</label>
     <md-select ng-model="vm.filterField">
       <md-option ng-repeat="s in vm.headers" value="{{s.field}}">
@@ -7,7 +7,8 @@
       </md-option>
     </md-select>
   </md-input-container>
-  <md-input-container md-no-float class="md-block">
+
+  <md-input-container md-no-float class="md-block" flex="30" flex-xs="70">
     <input ng-model="vm.tableParams.filter()[vm.filterField]"
       placeholder="Search Keyword">
   </md-input-container>
