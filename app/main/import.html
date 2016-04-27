@@ -2,7 +2,7 @@
   <div class="import">
     <h2>Import CSV content</h2>
 
-    <md-input-container class="md-block" layout="row">
+    <md-input-container class="md-block import-block" layout="row">
       <label>CSV Separator</label>
       <md-select ng-model="vm.separator" flex-sm="100" flex-gt-sm="33">
         <md-option ng-repeat="s in vm.separators" value="{{s.value}}">
@@ -11,7 +11,7 @@
       </md-select>
     </md-input-container>
 
-    <md-input-container class="md-block">
+    <md-input-container class="md-block import-block">
       <label>CSV Content</label>
       <textarea ng-model="vm.text" rows="5" md-select-on-focus=""></textarea>
     </md-input-container>
