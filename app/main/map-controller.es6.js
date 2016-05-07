@@ -20,7 +20,7 @@ function MapController(founderManager, $state, $localStorage) {
   vm.label = founderManager.label;
   vm.hideSetting = $localStorage.hideSetting;
 
-  if (founderManager.founders) {
+  if (founderManager.founders.length) {
     vm.founders = founderManager.founders
       .filter((f) => {
         return f.enabled;
